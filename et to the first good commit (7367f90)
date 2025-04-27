@@ -1,0 +1,8 @@
+[33m5419e35[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/add-multiplication[m[33m, [m[1;31morigin/feature/add-multiplication[m[33m)[m Implement multiply() with zero-handling
+[33m6e8ad41[m Implement multiply() with zero-handling
+[33m7367f90[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/feature/add-division[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m, [m[1;32mfeature/add-division[m[33m)[m Add project configuration files
+[33me58b608[m Add unit tests with 100% branch coverage
+[33m65e66d6[m Implement calculator operations (Addition, Subtraction, Multiplication, Division)
+[33mae76876[m Add GitHub Actions CI workflow and .gitignore
+[33m3f9a915[m Maven-д суурилсан Java тооцоолуурын төслийг эхлүүлэх
+[33m79fa838[m Initial commit
