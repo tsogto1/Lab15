@@ -12,7 +12,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <checkstyle.version>3.3.0</checkstyle.version> <!-- Changed to available version -->
+        <checkstyle.version>3.3.2</checkstyle.version>
         <jacoco.version>0.8.12</jacoco.version>
     </properties>
 
@@ -35,12 +35,31 @@
                     <configuration>
                         <lifecycleMappingMetadata>
                             <pluginExecutions>
+                                <!-- Configure Checkstyle plugin execution -->
                                 <pluginExecution>
                                     <pluginExecutionFilter>
                                         <groupId>org.apache.maven.plugins</groupId>
                                         <artifactId>maven-checkstyle-plugin</artifactId>
                                         <versionRange>[${checkstyle.version},)</versionRange>
                                         <goals>
+                                            <goal>check</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <execute>
+                                            <runOnIncremental>false</runOnIncremental>
+                                        </execute>
+                                    </action>
+                                </pluginExecution>
+                                <!-- Configure JaCoCo plugin execution -->
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.jacoco</groupId>
+                                        <artifactId>jacoco-maven-plugin</artifactId>
+                                        <versionRange>[${jacoco.version},)</versionRange>
+                                        <goals>
+                                            <goal>prepare-agent</goal>
+                                            <goal>report</goal>
                                             <goal>check</goal>
                                         </goals>
                                     </pluginExecutionFilter>
@@ -73,10 +92,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.3.0</version> <!-- Updated to available version -->
+                <version>${checkstyle.version}</version>
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>
                     <failOnViolation>true</failOnViolation>
+                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                    <violationSeverity>error</violationSeverity>
                 </configuration>
                 <executions>
                     <execution>
